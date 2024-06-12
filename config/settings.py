@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework_simplejwt',
     'django_filters',
+    'corsheaders',
 
     #apps
     'account',
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -174,3 +176,15 @@ JAZZMIN_SETTINGS = {
     "site_brand": "Cosmetics_shop",
 
 }
+
+CORS_ALLOWD_ORIGINS = [
+    "localhost:3000" # те хосты, которым разрешено
+]
+
+# CORS_ALLOWED_METHODS = [
+#     "GET",
+#     "POST",
+# ]
+
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
